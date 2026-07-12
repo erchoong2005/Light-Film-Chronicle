@@ -401,30 +401,39 @@ export default function ArchivePage() {
             boxShadow: '0 20px 60px rgba(0,0,0,0.6)',
           }}>
             <button onClick={() => setFilmModal(null)} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-lg opacity-50 hover:opacity-100 transition-opacity cursor-pointer" style={{ color: '#E9E2D5' }}>✕</button>
-            <div className="flex items-start justify-between mb-4">
-              <div>
+            <div className="flex gap-5 mb-4">
+              {/* Poster */}
+              <div className="flex-shrink-0 w-[140px] h-[200px] rounded-xl overflow-hidden" style={{ border: '1px solid rgba(200,168,120,0.25)', boxShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>
+                <img
+                  src={`/images/posters/${filmModal.id}.jpg`}
+                  alt={`《${filmModal.name}》海报`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Info */}
+              <div className="flex-1 min-w-0">
                 <h2 className="font-serif text-2xl font-bold" style={{ color: '#C8A878' }}>《{filmModal.name}》</h2>
                 <p className="text-sm font-sans opacity-50 mt-1" style={{ color: '#E9E2D5' }}>
                   {filmModal.year}年
                   {filmModal.isMain && <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: 'rgba(200,168,120,0.2)', color: '#C8A878' }}>时代代表作</span>}
                 </p>
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  <div>
+                    <p className="text-[11px] font-sans opacity-40 mb-0.5" style={{ color: '#C8A878' }}>导演</p>
+                    <p className="font-sans text-sm font-bold" style={{ color: '#E9E2D5' }}>{filmModal.director}</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-sans opacity-40 mb-0.5" style={{ color: '#C8A878' }}>主演</p>
+                    <p className="font-sans text-sm font-bold truncate" style={{ color: '#E9E2D5' }}>{filmModal.主演}</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-sans opacity-40 mb-0.5" style={{ color: '#C8A878' }}>类型</p>
+                    <p className="font-sans text-sm font-bold" style={{ color: '#E9E2D5' }}>{filmModal.type}</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="film-strip-h w-full mb-5" />
-            <div className="grid grid-cols-3 gap-4 mb-5">
-              <div>
-                <p className="text-[11px] font-sans opacity-40 mb-1" style={{ color: '#C8A878' }}>导演</p>
-                <p className="font-sans text-sm font-bold" style={{ color: '#E9E2D5' }}>{filmModal.director}</p>
-              </div>
-              <div>
-                <p className="text-[11px] font-sans opacity-40 mb-1" style={{ color: '#C8A878' }}>主演</p>
-                <p className="font-sans text-sm font-bold truncate" style={{ color: '#E9E2D5' }}>{filmModal.主演}</p>
-              </div>
-              <div>
-                <p className="text-[11px] font-sans opacity-40 mb-1" style={{ color: '#C8A878' }}>类型</p>
-                <p className="font-sans text-sm font-bold" style={{ color: '#E9E2D5' }}>{filmModal.type}</p>
-              </div>
-            </div>
             <div className="space-y-4 mb-6">
               <div>
                 <p className="text-[11px] font-sans opacity-40 mb-1" style={{ color: '#C8A878' }}>剧情简介</p>
