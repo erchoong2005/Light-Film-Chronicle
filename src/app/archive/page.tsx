@@ -476,7 +476,7 @@ export default function ArchivePage() {
 
             <div className="flex items-center justify-between">
               <button
-                onClick={() => { if (!state.filmReadStatus[filmModal.id]) markFilmRead(filmModal.id) }}
+                onClick={() => markFilmRead(filmModal.id)}
                 className="text-sm px-6 py-2.5 rounded-lg font-bold font-serif tracking-wider transition-all cursor-pointer"
                 style={{ backgroundColor: state.filmReadStatus[filmModal.id] ? '#6D8B68' : '#C8A878', color: state.filmReadStatus[filmModal.id] ? '#fff' : '#2C241C' }}
               >

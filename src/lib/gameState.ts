@@ -66,7 +66,7 @@ export function useGameState() {
   const markFilmRead = useCallback((filmId: number) => {
     setState(prev => ({
       ...prev,
-      filmReadStatus: { ...prev.filmReadStatus, [filmId]: true },
+      filmReadStatus: { ...prev.filmReadStatus, [filmId]: !prev.filmReadStatus[filmId] },
     }))
   }, [])
 
